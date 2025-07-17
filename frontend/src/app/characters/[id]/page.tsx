@@ -1,11 +1,11 @@
 import { getCharacterById } from "@/actions/characters";
 
 type Props = {
-    params: { id: string }
+    params: Promise<{ id: string }>
 }
 
-export default async function CharacterPage({ params }: Props) {
-    const { id } = await params;
+export default async function CharacterPage(props: Props) {
+    const { id } = await props.params;
     const character = await getCharacterById(id);
 
     return (

@@ -6,7 +6,6 @@ import { jsonSchemaTransform, serializerCompiler, validatorCompiler } from "fast
 import { characterRoutes } from "./modules/characters/characters.routes";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 
-
 const port = 8000;
 
 const app = fastify({ logger: true }).withTypeProvider<ZodTypeProvider>();
@@ -30,13 +29,17 @@ app.register(fastifySwaggerUi, {
     routePrefix: "/docs",
 });
 
+app.get('/health', async (request, reply) => {
+    return reply.code(200).send({ status: 'ok' });
+});
+
 app.get("/", () => {
     return { "message": "the see the documentation go to route /docs" }
 });
 
 app.register(characterRoutes, { prefix: "/characters" });
 
-app.listen({ port: port }).then(() => {
+app.listen({ port: port, host: '0.0.0.0' }).then(() => {
     console.log(`Server running at port: ${port}`);
 });
 

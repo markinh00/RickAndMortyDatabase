@@ -30,7 +30,7 @@ export default function Card(props: Props) {
                         key={seasonAppearance.season}
                         className="flex w-full"
                     >
-                        <p className="mr-1 font-semibold">{`season ${seasonAppearance.season} appearances:`}</p>
+                        <p className="mr-1 font-semibold">{`Season ${seasonAppearance.season} appearances:`}</p>
                         <p>{seasonAppearance.appearances}</p>
                     </div>
                 ))}
