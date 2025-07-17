@@ -1,79 +1,53 @@
 # 🥼 Rick and Morty Database
 
-**RickAndMortyDatabase** is a project inspired on [this test for junior devs](https://github.com/RogaLabs/teste-desenvolvedor-junior)
-
-This project is an example of a modern and scalable backend and frontend architecture.
+**RickAndMortyDatabase** is a full‑stack demonstration project built on top of the challenge proposed in [Roga Labs’ Junior Developer test](https://github.com/RogaLabs/teste-desenvolvedor-junior). Its goal is to exemplify a modern, **type‑safe**, and **container‑ready** architecture that you can fork, study, or extend.
 
 ---
 
-## 🚀 Technologies
+## ✨ What’s inside?
 
-- [Fastify](https://www.fastify.io/): fast and efficient web framework.
-- [TypeScript](https://www.typescriptlang.org/): static typing for JavaScript.
-- [Zod](https://zod.dev/): schema validation.
-- [Swagger](https://swagger.io/): interactive API documentation.
-- [Docker](https://www.docker.com/): containerization for a consistent environment.
+| Layer        | Highlights                                                   |
+| ------------ | ------------------------------------------------------------ |
+| **Backend**  | Fastify · TypeScript · Zod validation · Swagger/OpenAPI docs |
+| **Frontend** | Next.js · React · Tailwind CSS                               |
+| **DevOps**   | Docker & Docker Compose · Hot‑reload                         |
 
----
-
-## ⚙️ Prerequisites
-
-- [Docker](https://www.docker.com/get-started) (`optional`)
-- [Node.js](https://nodejs.org/) LTS
-- [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/)
+The API serves the list of **living Rick and Morty characters**, enriched with the number of appearances per season (S01–S03) and in total, already **sorted** by appearances (desc) and name (asc).
 
 ---
 
-## 🐳 Running with Docker
+## 🚀 Quick start
 
-Follow these steps to run the project using Docker:
-
-### 1. Clone the repository:
+### Clone the repository
 
 ```bash
 git clone https://github.com/markinh00/RickAndMortyDatabase.git
 cd RickAndMortyDatabase
 ```
 
-### 2. Run the docker container:
+### Using Docker (recommended)
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
-### 3. Done!
+- API → [http://localhost:8000/](http://localhost:8000/)
+- Docs → [http://localhost:8000/docs](http://localhost:8000/docs)
+- Web → [http://localhost:3000/](http://localhost:3000/)
 
-With this the container will
+### Without Docker
 
-- create the backend at `http://localhost:8000/`
-- create the frontend at `http://localhost:3000/`
+Open two terminals in the project root.
 
-## 🛠️ Running without Docker
-
-Follow these steps to run the project without Docker:
-
-### 1. Clone the repository:
-
-```bash
-git clone https://github.com/markinh00/RickAndMortyDatabase.git
-cd RickAndMortyDatabase
-```
-
-Then open another terminal on the same folder or split the current into two terminals
-
-### 2. Start the backend:
-
-In one terminal run the command bellow:
+**Backend**
 
 ```bash
 cd backend
-npm install
+npm install    # or pnpm / yarn
 npm run dev
 ```
 
-### 2. Start the frontend:
-
-In the other terminal run the command bellow:
+**Frontend**
 
 ```bash
 cd frontend
@@ -81,13 +55,28 @@ npm install
 npm run dev
 ```
 
-### 3. Done!
+---
 
-With this:
+## 📖 Project structure
 
-- the backend will be created at `http://localhost:8000/`
-- the frontend will be created at `http://localhost:3000/`
+```
+RickAndMortyDatabase
+├─ backend/          # Fastify service
+│  ├─ src/
+│  └─ ...
+├─ frontend/         # Next.js client
+│  ├─ src/
+│  └─ ...
+└─ docker-compose.yml
+```
 
-## 📄 Swagger Documentation
+---
 
-To see the swagger documentation for the backend go to: `http://localhost:8000/docs`
+## 📝 Original challenge
+
+> Return a static page (_Node + Express_) listing **only living characters** with the following data:\
+> name · gender · status · appearances per season · total appearances.\
+> Sort by **appearances (desc)** then **name (asc)**.\
+> 31 episodes across 3 seasons (11 + 10 + 10).
+
+This repository re‑implements the same requirements using a richer stack.
